@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <title>BalkanOTC · pregled širine</title>
+    <style>
+      html, body { margin: 0; background: #e7e4dc; }
+      body { display: flex; justify-content: flex-start; }
+      iframe { border: 0; display: block; background: #f3f0e8; flex: 0 0 auto; max-width: none; }
+    </style>
+  </head>
+  <body>
+    <iframe id="f"></iframe>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const w = Math.max(320, Math.min(1600, Number(params.get("w")) || 360));
+      const h = Math.max(400, Math.min(4000, Number(params.get("h")) || 1400));
+      const path = params.get("path") || "/";
+      const f = document.getElementById("f");
+      f.style.width = w + "px";
+      f.style.height = h + "px";
+      f.src = path;
+    </script>
+  </body>
+</html>
